@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import Friend from "./Friend";
+import useFriends from "../../hooks/useFriends";
 
 const YourFriends = () => {
-  const [friends, setFriends] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch("/data.json");
-      const data = await res.json();
-      setFriends(data);
-      // console.log(friends, "friends");
-    };
-    fetchData();
-  }, []);
+  const { friends, loading } = useFriends();
+
+  if (loading) {
+    return (
+      <h2 className="text-center text-2xl my-30">
+        Please wait, data is loading
+      </h2>
+    );
+  }
 
   return (
     <div className="bg-[#f8fafc] ">
@@ -35,17 +36,9 @@ const YourFriends = () => {
       <hr className="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25" />
       <div className="container mx-auto max-w-7/10 mt-5">
         <h1 className="font-semibold">Your Friends</h1> <br />
-        <div className=" grid grid-cols-4">
+        <div className=" grid grid-cols-4 gap-5">
           {friends.map((friend, id) => {
-            return (
-              <div key={id}>
-                <img src={friend.picture} className="rounded-full w-[25%]" />
-                <h1>{friend.name}</h1>
-                <p>62d ago</p>
-                <p>work</p>
-                <p>Almost Due</p>
-              </div>
-            );
+            return <Friend key={id} friend={friend}></Friend>;
           })}
         </div>
       </div>
