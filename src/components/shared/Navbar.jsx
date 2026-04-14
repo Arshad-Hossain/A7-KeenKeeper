@@ -15,16 +15,28 @@ const Navbar = () => {
       <ul className="flex justify-between gap-5">
         <NavLink
           to={"/"}
-          className="flex items-center bg-[#244d3f] text-white p-1"
+          className={({ isActive }) =>
+            `${isActive ? "bg-[#244d3f] text-white" : ""} flex items-center p-1`
+          }
         >
           <IoHomeOutline></IoHomeOutline>Home
         </NavLink>
 
-        <NavLink to={"/timeline"} className="flex items-center">
+        <NavLink
+          to={"/timeline"}
+          className={({ isActive }) =>
+            `${isActive ? "bg-[#244d3f] text-white" : ""} flex items-center p-1`
+          }
+        >
           <RiTimeLine></RiTimeLine> Timeline
         </NavLink>
 
-        <NavLink to={"/stats"} className="flex items-center">
+        <NavLink
+          to={"/stats"}
+          className={({ isActive }) =>
+            `${isActive ? "bg-[#244d3f] text-white" : ""} flex items-center p-1`
+          }
+        >
           <PiChartLine></PiChartLine> Stats
         </NavLink>
       </ul>

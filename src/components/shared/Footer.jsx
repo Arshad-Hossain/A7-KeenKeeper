@@ -28,7 +28,7 @@ const Footer = () => {
             <img src={xImage} />
           </p>
         </div>
-        <hr class="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25" />
+        <hr className="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25" />
 
         <div className="flex flex-col md:flex-row justify-between items-center mt-5 gap-3 md:gap-0 text-center md:text-left">
           <p>© 2026 KeenKeeper. All rights reserved.</p>
