@@ -1,6 +1,6 @@
 # 🌟 KeenKeeper
 
-> Stay connected with the people who matter most ❤️
+> Stay connected with the people who matter most in our lives ❤️
 
 ---
 
