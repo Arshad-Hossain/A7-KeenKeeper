@@ -1,11 +1,12 @@
-import React from "react";
-import { useParams } from "react-router";
+import React, { useContext } from "react";
+import { useNavigate, useParams } from "react-router";
 import useFriends from "../../hooks/useFriends";
 import { HiOutlineArchiveBox, HiOutlineBellSnooze } from "react-icons/hi2";
 import { MdDeleteOutline } from "react-icons/md";
 import callImg from "../../assets/call.png";
 import textImg from "../../assets/text.png";
 import videoImg from "../../assets/video.png";
+import { TimelineContext } from "../../context/TimelineContext";
 const FriendDetails = () => {
   const { id } = useParams();
   console.log(id, "params");
@@ -14,6 +15,19 @@ const FriendDetails = () => {
 
   const expectedFriend = friends.find((friend) => friend.id === Number(id));
   console.log(expectedFriend, "expectedFriend");
+
+  const navigate = useNavigate();
+  const { timelineData, setTimelineData } = useContext(TimelineContext);
+
+  const handleInteraction = (type) => {
+    const newData = {
+      interactionType: type,
+      friend: expectedFriend,
+      date: new Date().toLocaleDateString(),
+    };
+    setTimelineData([...timelineData, newData]);
+    navigate(`/timeline/${id}`);
+  };
 
   if (loading) {
     return <h2>Please wait, data is loading...</h2>;
@@ -114,15 +128,24 @@ const FriendDetails = () => {
               Quick Check-In
             </h1>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-              <div className="bg-[#f8fafc] shadow-md py-6 flex flex-col items-center justify-center rounded-md ">
+              <div
+                onClick={() => handleInteraction("call")}
+                className="bg-[#f8fafc] shadow-md py-6 flex flex-col items-center justify-center rounded-md "
+              >
                 <img src={callImg} />
                 <p>Call</p>
               </div>
-              <div className="bg-[#f8fafc] shadow-md py-6 flex flex-col items-center justify-center rounded-md">
+              <div
+                onClick={() => handleInteraction("text")}
+                className="bg-[#f8fafc] shadow-md py-6 flex flex-col items-center justify-center rounded-md"
+              >
                 <img src={textImg} />
                 <p>Text</p>
               </div>
-              <div className="bg-[#f8fafc] shadow-md py-6 flex flex-col items-center justify-center rounded-md">
+              <div
+                onClick={() => handleInteraction("video")}
+                className="bg-[#f8fafc] shadow-md py-6 flex flex-col items-center justify-center rounded-md"
+              >
                 <img src={videoImg} />
                 <p>video</p>
               </div>

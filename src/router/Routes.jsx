@@ -24,12 +24,12 @@ export const router = createBrowserRouter([
         element: <Timeline></Timeline>,
       },
       {
+        path: "/timeline/:id",
+        element: <Timeline></Timeline>,
+      },
+      {
         path: "/stats",
-        element: (
-          <h2>
-            <Stats></Stats>
-          </h2>
-        ),
+        element: <Stats></Stats>,
       },
     ],
     errorElement: <h2>This page is not found</h2>,

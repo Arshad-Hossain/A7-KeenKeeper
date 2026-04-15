@@ -7,9 +7,12 @@ import RootLayout from "./layout/RootLayout";
 import Homepage from "./pages/homepage/Homepage";
 import Timeline from "./pages/timeline/Timeline";
 import { router } from "./router/Routes";
+import TimelineProvider from "./context/TimelineProvider";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <TimelineProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </TimelineProvider>
   </StrictMode>,
 );
