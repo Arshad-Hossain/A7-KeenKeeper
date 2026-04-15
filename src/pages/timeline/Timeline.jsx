@@ -34,7 +34,6 @@ const Timeline = () => {
 
           {item.interactionType === "video" && (
             <h1>
-              {" "}
               Video with {item.friend.name} on {item.date}
             </h1>
           )}
