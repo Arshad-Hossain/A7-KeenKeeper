@@ -50,10 +50,10 @@ const FriendDetails = () => {
             />
             <h1 className="font-bold mt-2">{expectedFriend.name}</h1>
             <div className="flex gap-2 mb-2 mt-1 flex-wrap justify-center">
-              <span className="bg-[#cbfadb] rounded-md text-xs px-2 py-1">
+              <span className="bg-[#cbfadb] rounded-md text-xs  py-1">
                 {expectedFriend.tags?.[0]}
               </span>
-              <span className="bg-[#cbfadb] rounded-md text-xs px-2 py-1">
+              <span className="bg-[#cbfadb] rounded-md text-xs  py-1">
                 {expectedFriend.tags?.[1]}
               </span>
             </div>
