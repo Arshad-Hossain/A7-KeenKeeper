@@ -37,7 +37,7 @@ const YourFriends = () => {
       <hr className="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25" />
       <div className="container mx-auto max-w-7/10 mt-5">
         <h1 className="font-semibold">Your Friends</h1> <br />
-        <div className=" grid grid-cols-4 gap-5">
+        <div className=" grid md:grid-cols-4 gap-5">
           {friends.map((friend, id) => {
             return <Friend key={id} friend={friend}></Friend>;
           })}

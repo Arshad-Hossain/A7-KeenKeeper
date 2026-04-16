@@ -35,12 +35,14 @@ const Timeline = () => {
   };
 
   if (timelineData.length === 0) {
-    return <h2 className="text-center pb-50">Sorry, no timeline data found</h2>;
+    return (
+      <h2 className="text-center pb-50 pt-30">Sorry, no timeline data found</h2>
+    );
   }
 
   return (
     <div className="bg[#f8fafc]">
-      <div className="container mx-auto">
+      <div className="container mx-auto space-y-5">
         <h1 className="text-2xl font-bold">Timeline</h1>
         <br />
 
@@ -77,31 +79,46 @@ const Timeline = () => {
         {filteredData.map((item, index) => (
           <div key={index}>
             {item.interactionType === "call" && (
-              <div className="flex gap-2 m-10 w-full bg-[#ffffff] shadow p-2">
-                <img src={callImg} />
-                <div>
-                  <p>Call with {item.friend.name}</p>
-                  <p> {item.date}</p>
+              <div className="bg-[#ffffff] shadow rounded-lg flex flex-col  sm:flex-row items-start sm:items-center gap-3 p-3 sm:p-4 w-full ">
+                <img
+                  src={callImg}
+                  className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                />
+                <div className="text-sm sm:text-base">
+                  <p className="font-medium">Call with {item.friend.name}</p>
+                  <p className="text-gray-500 text-xs sm:text-sm">
+                    {item.date}
+                  </p>
                 </div>
               </div>
             )}
 
             {item.interactionType === "text" && (
-              <div className="flex gap-2 m-10 w-full bg-[#ffffff] shadow p-2">
-                <img src={textImg} />
+              <div className=" bg-[#ffffff] shadow rounded-lg flex flex-col sm:flex-row items-start sm:items-center gap-3 p-3 sm:p-4 w-full ">
+                <img
+                  src={textImg}
+                  className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                />
                 <div>
-                  <p>Text with {item.friend.name}</p>
-                  <p> {item.date}</p>
+                  <p className="font-medium">Text with {item.friend.name}</p>
+                  <p className="text-gray-500 text-xs sm:text-sm">
+                    {item.date}
+                  </p>
                 </div>
               </div>
             )}
 
             {item.interactionType === "video" && (
-              <div className="flex gap-2 m-10 w-full bg-[#ffffff] shadow p-2">
-                <img src={videoImg} />
+              <div className=" bg-[#ffffff] shadow rounded-lg flex flex-col sm:flex-row items-start sm:items-center gap-3 p-3 sm:p-4 w-full">
+                <img
+                  src={videoImg}
+                  className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                />
                 <div>
-                  <p>Video with {item.friend.name}</p>
-                  <p> {item.date}</p>
+                  <p className="font-medium">Video with {item.friend.name}</p>
+                  <p className="text-gray-500 text-xs sm:text-sm">
+                    {item.date}
+                  </p>
                 </div>
               </div>
             )}
