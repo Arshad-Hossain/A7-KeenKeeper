@@ -5,7 +5,6 @@ import { TiTickOutline } from "react-icons/ti";
 import callImg from "../../assets/call.png";
 import textImg from "../../assets/text.png";
 import videoImg from "../../assets/video.png";
-import { toast } from "react-toastify";
 
 const Timeline = () => {
   const { id } = useParams();
@@ -21,13 +20,6 @@ const Timeline = () => {
 
   const handleSelect = (type) => {
     document.getElementById("popover-1")?.hidePopover();
-
-    // setSelected(text);
-    // document.getElementById("popover-1")?.hidePopover();
-    // const filteredTimelineData = timelineData.filter(
-    //   (item) => item.interactionType === text,
-    // );
-    // setFilteredData(filteredTimelineData);
 
     if (type === selected) {
       setSelected("");

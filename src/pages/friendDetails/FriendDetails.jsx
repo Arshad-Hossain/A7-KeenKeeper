@@ -39,7 +39,7 @@ const FriendDetails = () => {
   }
 
   return (
-    <div className="bg-[#f8fafc] pb-10">
+    <div className="bg-[#f8fafc] pb-19">
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-12 gap-6  py-10 ">
         {/* left-side/sidebar  */}
         <aside className="col-span-12 md:col-span-4">

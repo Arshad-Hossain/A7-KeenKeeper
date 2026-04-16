@@ -5,6 +5,7 @@ import Homepage from "../pages/homepage/Homepage";
 import Timeline from "../pages/timeline/Timeline";
 import Stats from "../pages/stats/Stats";
 import FriendDetails from "../pages/friendDetails/FriendDetails";
+import PageNotFound from "../pages/pagenotfound/PageNotFound";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,6 @@ export const router = createBrowserRouter([
         element: <Stats></Stats>,
       },
     ],
-    errorElement: <h2>This page is not found</h2>,
+    errorElement: <PageNotFound></PageNotFound>,
   },
 ]);
