@@ -7,6 +7,8 @@ import callImg from "../../assets/call.png";
 import textImg from "../../assets/text.png";
 import videoImg from "../../assets/video.png";
 import { TimelineContext } from "../../context/TimelineContext";
+import { PulseLoader } from "react-spinners";
+import { toast } from "react-toastify";
 const FriendDetails = () => {
   const { id } = useParams();
   console.log(id, "params");
@@ -25,12 +27,15 @@ const FriendDetails = () => {
       friend: expectedFriend,
       date: new Date().toLocaleDateString(),
     };
+    toast(`${type} with ${expectedFriend.name}`);
     setTimelineData([...timelineData, newData]);
     navigate(`/timeline/${id}`);
   };
 
   if (loading) {
-    return <h2>Please wait, data is loading...</h2>;
+    return (
+      <PulseLoader className="container mx-auto text-center my-30"></PulseLoader>
+    );
   }
 
   return (
@@ -118,7 +123,9 @@ const FriendDetails = () => {
               </button>
             </div>
             <br />
-            <p className="mt-2 text-gray-600 text-sm">Connect every 30 days</p>
+            <p className="mt-2 text-gray-600 text-sm">
+              Connect every <span className="font-bold">30 days</span>
+            </p>
           </div>
 
           {/* last-part  */}

@@ -5,11 +5,13 @@ import { TiTickOutline } from "react-icons/ti";
 import callImg from "../../assets/call.png";
 import textImg from "../../assets/text.png";
 import videoImg from "../../assets/video.png";
+import { toast } from "react-toastify";
 
 const Timeline = () => {
   const { id } = useParams();
   console.log(id, "id");
   const { timelineData } = useContext(TimelineContext);
+
   // const { interactionType, friend, date } = timelineData;
   // const { name, age } = useContext(TimelineContext);
   // console.log(name, age);
@@ -19,6 +21,7 @@ const Timeline = () => {
 
   const handleSelect = (type) => {
     document.getElementById("popover-1")?.hidePopover();
+
     // setSelected(text);
     // document.getElementById("popover-1")?.hidePopover();
     // const filteredTimelineData = timelineData.filter(
@@ -29,6 +32,7 @@ const Timeline = () => {
     if (type === selected) {
       setSelected("");
       setFilteredData(timelineData);
+
       return;
     }
 
@@ -94,7 +98,7 @@ const Timeline = () => {
               <div className="flex gap-2 m-10 w-full bg-[#ffffff] shadow p-2">
                 <img src={textImg} />
                 <div>
-                  <p>Call with {item.friend.name}</p>
+                  <p>Text with {item.friend.name}</p>
                   <p> {item.date}</p>
                 </div>
               </div>
@@ -104,7 +108,7 @@ const Timeline = () => {
               <div className="flex gap-2 m-10 w-full bg-[#ffffff] shadow p-2">
                 <img src={videoImg} />
                 <div>
-                  <p>Call with {item.friend.name}</p>
+                  <p>Video with {item.friend.name}</p>
                   <p> {item.date}</p>
                 </div>
               </div>

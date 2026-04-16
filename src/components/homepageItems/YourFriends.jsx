@@ -1,6 +1,7 @@
 import React from "react";
 import Friend from "./Friend";
 import useFriends from "../../hooks/useFriends";
+import { PulseLoader } from "react-spinners";
 
 const YourFriends = () => {
   const { friends, loading } = useFriends();
@@ -8,7 +9,7 @@ const YourFriends = () => {
   if (loading) {
     return (
       <h2 className="text-center text-2xl my-30">
-        Please wait, data is loading
+        <PulseLoader></PulseLoader>
       </h2>
     );
   }
